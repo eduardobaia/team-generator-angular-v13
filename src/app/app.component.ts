@@ -38,9 +38,17 @@ generateTeams(){
   console.log("entrou em generate")
 
   if(!this.numberOfTeams ||  this.numberOfTeams <= 0){
-    console.log("entrou em if de retorni ´")
+    this.errorMessage = "invalid number of teams"
     return;
   }
+
+
+  if(this.members.length < this.numberOfTeams){
+    this.errorMessage='Not enought members'
+    return;
+  }
+
+  this.errorMessage='';
   const allMembers = [...this.members];
 
   console.log("numbes of temas ", this.numberOfTeams)
@@ -63,6 +71,10 @@ generateTeams(){
 
     }
   }
+
+  this,this.members = [];
+  this.numberOfTeams='';
+
   console.log(this.teams)
 }
 }
